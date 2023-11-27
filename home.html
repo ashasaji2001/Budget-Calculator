@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="./script.js"></script>
+</head>
+<body style="width: 100%; height: 100%; background-image: url(https://img.freepik.com/premium-photo/top-view-office-table-desk-workspace-with-calculator-black-pen-laptop-blue_101276-159.jpg?w=2000); align-items:center; background-size: cover;">
+      <!-- head -->
+      <div class="row">
+        <div class="col">
+            <div class="d-flex justify-content-between  ">
+                <h4 id="welcomemsg" class="text-pink"><i class="fa-solid fa-user"></i>&nbsp Welcome User</h4>
+                <button onclick="logout()" class="btn btn-danger fw-medium  ">Logout</button>
+            </div>
+            
+            <!-- <h3 class="fs-2  text-center  "><span class="text-pink fw-medium ">F</span><span class="text-primary">amily</span><span class="text-pink fw-medium ">F</span><span class="text-primary ">in</span><span class="text-pink fw-medium ">F</span><span class="text-primary ">it</span><span class="text-center text-dark fs-4 ">- Budget Calculator</span></h3> -->
+            
+            <hr class="w-75 mx-auto border border-1 border-primary"> 
+        </div>
+    </div>
+    <center>
+    <div  class="container-fluid m-5" style="border-style: solid; border-color: black; border-radius: 25px; width: 500px; height: 680px;">
+<h1 class="text-center m-1">BUDGET CALCULATOR</h1>
+<br>
+<br>
+<br>
+<div  class="container-fluid" style="box-shadow: 10px; border:1px  black; border-style:groove;">
+    <h3>Add Money</h3>
+    <input type="text" id="incometype" placeholder="Enter income type"> <input type="number" id="incomeamt" placeholder="Enter amount"> <button onclick="addIncome(event)" class="btn btn-success">Add</button>
+</div>
+<br>
+<br>
+<!-- <div  class="container-lg" style="box-shadow: 10px; border:1px  black; border-style:groove;">
+<br>
+<h3 class="text-center">Expense</h3>
+<br>
+<input type="text" id="expensetype" placeholder="Expense Type">
+<br>
+<input type="text" id="expenseamt" placeholder="Amount">
+<br>
+<br>
+<button onclick="addExpense(event)" class="text-center text-light bg-success">Add</button>
+<br>
+</div> -->
+<div class="col text-center py-3">
+    <h3 class="text-primary">Add Expense</h3>
+    <form action="" id="expenseform">
+        <input id="expensetype" type="text" class="form-control  w-75 mx-auto " placeholder="Enter Expense Type"><br>
+        <input id="expenseamt" type="number" class="form-control   w-75 mx-auto" placeholder="Enter Amount"><br>
+        <button onclick="addExpense(event)" class="btn btn-primary">Add</button>
+
+    </form>
+</div>
+<br>
+
+<div class="container-fluid" style="box-shadow:10px solid rgb(0, 0, 0); border: 2px solid rgb(0, 0, 0); border-radius: 10px;">
+
+    <div class="row">
+        <div  class="col-6" style=" background-color: aqua; height: 150px;">
+            <h5 class="text-center"> Total Balance</h5>
+            <h3  id="incomedisplay" class="mt-5 ">0 Rs</h3>
+        </div>
+        <div class="col-6" style=" background-color:crimson; height: 150px;">
+        <h5 class="text-center">Total Expense</h5>
+        <h3 id="expensedisplay" class="mt-5"> 0 Rs</h3>
+    
+    </div>
+</div>
+
+
+
+    </div>
+    <div class="row mt-3">
+        <div class="col text-xl-end ">
+            <button onclick="viewmore(event)" class="btn border-0 "><a class="fw-medium " href="">View More</a></button>
+             
+        </div>
+        <div class="col text-xl-end ">
+            <button onclick="clearAll()" class="btn btn-warning fw-medium ">clear All  </button>
+        </div>
+    </div>
+    <!-- view more -->
+<section id="alldetails">
+    <div  class="container bg-primary-subtle" >
+    <div id="tablediv" class="row row-cols-1 row-cols-xl-2 row-cols-lg-2 row-cols-md-1 row-cols-sm-1">
+        <h2 class="text-center mx-auto  text-dark  p-2 mb-2 mt-5   " >Income and Expense Details</h2>
+        <hr class="w-75 mx-auto border border-1 border-primary"> 
+        <div class="col">
+            <h3 class="text-primary">Income</h3>
+            <table id="incometable" class="table ">
+                <thead class="table-danger fw-medium fs-5 ">
+                <tr >
+                    <td scope="col">Type</td>
+                    <td scope="col">Amount</td>
+                    <td scope="col">Balance</td>
+                  
+                </tr>
+            </thead>
+                <tbody class="fw-medium "  id="incomedetails">
+    
+                </tbody>
+                
+    
+            </table>
+        </div>
+        <div class="col">
+            <h3 class="text-primary">Expense </h3>
+            <table id="expensetable" class="table ">
+                <thead class="table-danger fw-medium fs-5">
+                <tr>
+                    <td scope="col">Type</td>
+                    <td scope="col">Amount</td>
+                    <td scope="col">Balance</td>
+                  
+                </tr>
+            </thead>
+                <tbody class="fw-medium " id="expensedetails">
+    
+                </tbody>
+                
+    
+            </table>
+        </div>
+    
+        <!-- <div class="row mt-4 mx-auto ">
+            <h2 class="text-primary text-center">Expense Pie-Chart</h2>
+            <div class="col  mx-auto text-center " style="width: 700px; height: 400px;">
+                <canvas class="mx-auto" id="piechart"></canvas>
+            </div>
+        </div>
+     -->
+    <!-- </div>
+    </section> -->
+    
+        
+    </body>
+    
+    <!-- <script>
+        function displaychart(){
+        const loggedkey1=localStorage.getItem('loggedkey')
+        let newobj1=JSON.parse(localStorage.getItem(loggedkey1))
+        const expensearray=newobj1.expenseArray;
+        let type=expensearray.map(x=>x.type);
+        let values=expensearray.map(x=>x.amt);
+        const mychart=document.getElementById("piechart").getContext('2d');
+        const chart=new Chart(mychart,{
+            type:"pie",
+         data:{
+                labels: type,
+                datasets: [{        
+                data: values,
+                backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)',  'rgb(255, 205, 86)','black','green','grey','pink','purple'],
+                }], 
+              },
+              options:{}
+    });
+        }
+        
+    </script> -->
+ 
+    </html>
+    
+</center>
+</body>
+</html>
