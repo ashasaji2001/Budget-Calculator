@@ -2,7 +2,7 @@
 // user name display
 const loggedkey=localStorage.getItem('loggedkey');
 let welcomemsg=document.getElementById("welcomemsg")
-// welcomemsg.innerHTML=`<i class="fa-solid fa-user"></i> Welcome ${loggedkey}`
+
 displayincomeexpense();
 displayexpenseArray()
 displayincomeArray()
@@ -16,11 +16,7 @@ function logout(){
     window.location='./index.html';
   
 }
-// function viewmore(event){
-//     event.preventDefault();
-//     const tablediv=document.getElementById("tablediv");
-//     tablediv.style.display='inline-block';
-// }
+
 function clearAll(){
    let res=confirm("Are you sure you want clear all data ?")
  if(res){
